@@ -31,9 +31,9 @@ from time import monotonic as _time
 
 __all__ = ["scheduler"]
 
-class Event(namedtuple('Event', 'time, priority, action, argument, kwargs')):
+class Event(namedtuple('Event', 'event_name, time, priority, action, argument, kwargs')):
     __slots__ = []
-    def __eq__(s, o): return (s.time, s.priority) == (o.time, o.priority)
+    def __eq__(s, o): return (s.event_name) == (o.event_name)
     def __lt__(s, o): return (s.time, s.priority) <  (o.time, o.priority)
     def __le__(s, o): return (s.time, s.priority) <= (o.time, o.priority)
     def __gt__(s, o): return (s.time, s.priority) >  (o.time, o.priority)
